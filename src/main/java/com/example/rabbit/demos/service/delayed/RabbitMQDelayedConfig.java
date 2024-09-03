@@ -1,4 +1,4 @@
-package com.example.rabbit.demos.service;
+package com.example.rabbit.demos.service.delayed;
 
 import java.util.HashMap;
 import java.util.Map;

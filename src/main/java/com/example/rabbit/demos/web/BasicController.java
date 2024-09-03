@@ -16,8 +16,9 @@
 
 package com.example.rabbit.demos.web;
 
-import com.example.rabbit.demos.service.DelayedMessageSender;
-import com.example.rabbit.demos.service.MessageSender;
+import com.example.rabbit.demos.service.delayed.DelayedMessageSender;
+import com.example.rabbit.demos.service.dlx.DLXSender;
+import com.example.rabbit.demos.service.standard.MessageSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +33,9 @@ public class BasicController {
 
     @Autowired
     private DelayedMessageSender delayedMessageSender;
+
+    @Autowired
+    private DLXSender dlxSender;
 
     // http://127.0.0.1:8080/hello?name=lisi
     @RequestMapping("/hello")
@@ -57,4 +61,12 @@ public class BasicController {
         return "Send: " + msg;
     }
 
+    // http://127.0.0.1:8080/sendDlx
+    @RequestMapping("/sendDlx")
+    @ResponseBody
+    public String sendDlx() {
+        long msg = System.currentTimeMillis();
+        dlxSender.sendDelayedMessage(msg + "");
+        return "Send: " + msg;
+    }
 }

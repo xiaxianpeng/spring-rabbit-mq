@@ -1,4 +1,4 @@
-package com.example.rabbit.demos.service;
+package com.example.rabbit.demos.service.delayed;
 
 import com.example.rabbit.demos.consts.Consts;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

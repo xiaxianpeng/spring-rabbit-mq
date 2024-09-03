@@ -1,4 +1,4 @@
-package com.example.rabbit.demos.service;
+package com.example.rabbit.demos.service.standard;
 
 import org.springframework.amqp.rabbit.annotation.Exchange;
 import org.springframework.amqp.rabbit.annotation.Queue;
